@@ -1,0 +1,24 @@
+name: znc
+
+ignores:
+    - .git
+    - src/.git
+
+services:
+    ${name}-data: filesystem
+
+# Stackato has build-essential installed already.
+# Not specifying it again lets us skip apt-get update
+#requirements:
+#    staging:
+#        ubuntu:
+#            - build-essential
+
+hooks:
+    pre-staging:
+        - cd src && ./autogen.sh
+        - ./configure --prefix=/app
+        - make
+        - make install
+
+buildpack: https://github.com/ryandotsmith/null-buildpack.git
