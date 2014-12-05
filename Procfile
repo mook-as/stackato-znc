@@ -1,1 +1,1 @@
-web: /app/znc.sh
+web: /app/znc.rb

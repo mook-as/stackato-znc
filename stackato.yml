@@ -6,6 +6,7 @@ ignores:
 
 services:
     ${name}-data: filesystem
+    ${name}-port: harbor
 
 # Stackato has build-essential installed already.
 # Not specifying it again lets us skip apt-get update
